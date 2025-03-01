@@ -1,0 +1,565 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #7209b7;
+    --secondary-color: #3f37c9;
+    --accent-color: #f72585;
+    --gradient-start: #4cc9f0;
+    --gradient-end: #4361ee;
+    --background-color: #f8f9fa;
+    --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    --transition-speed: 0.3s;
+}
+:root {
+    --primary-color: #ff0000;    /* YouTube red */
+    --secondary-color: #282828;  /* YouTube dark */
+    --accent-color: #ff4444;     /* Lighter red */
+    --gradient-start: #b93a3a;   /* Very light red */
+    --gradient-end: #cb5f5f;     /* Light red */
+    --background-color: #f8f9fa;
+    --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    --transition-speed: 0.3s;
+}
+
+/* Update pulse animation color */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    }
+}
+/* Copy all CSS from the style tag in your HTML file */
+body {
+    padding: 0;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    color: #333;
+    position: relative;
+}
+
+/* Add these styles for the floating bubbles and layout */
+.hero-section {
+    padding: 120px 0 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -100px;
+    animation: float 20s infinite alternate ease-in-out;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    top: 50px;
+    right: 10%;
+    animation: float 15s infinite alternate-reverse ease-in-out;
+}
+
+.shape-3 {
+    width: 150px;
+    height: 150px;
+    bottom: -50px;
+    right: 20%;
+    animation: float 18s infinite alternate ease-in-out 2s;
+}
+
+.analysis-form-container {
+    max-width: 800px;
+    margin: -100px auto 60px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    backdrop-filter: blur(20px);
+    position: relative;
+    z-index: 10;
+}
+
+.comments-section {
+    margin-top: 40px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+}
+
+.comment-card {
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    background-color: var(--background-color);
+    transition: all var(--transition-speed) ease;
+    border-left: 5px solid transparent;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(20px, 30px) rotate(10deg); }
+    100% { transform: translate(-20px, 15px) rotate(-10deg); }
+}
+
+/* Add these dark mode styles */
+.dark-mode .analysis-form-container {
+    background: rgba(37, 42, 65, 0.95);
+    color: var(--text-color);
+}
+
+.dark-mode .comments-section {
+    background-color: var(--card-background);
+    color: var(--text-color);
+}
+
+.dark-mode .comment-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+/* Hero section enhancements */
+.hero-title {
+    color: white;
+    font-weight: 700;
+    font-size: 4rem;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+    letter-spacing: -0.5px;
+}
+
+.hero-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.5rem;
+    margin-top: 15px;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+}/* Analysis results styling */
+.results-container {
+    max-width: 1600px;
+    margin: 0 auto 60px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    animation: slideUp 0.6s ease-out;
+}/* Update the analyze button style */
+.btn-primary {
+    background: #cc0000;
+    border: none;
+    padding: 12px 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #990000;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(204, 0, 0, 0.3);
+}
+
+.btn-primary:active {
+    background: #800000;
+    transform: translateY(0);
+}
+
+.btn-primary i {
+    color: rgba(255, 255, 255, 0.9);
+}
+.form-control {
+    padding: 18px;
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    transition: all var(--transition-speed) ease;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.form-control:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(247, 37, 133, 0.25);
+}/* Add these new styles */
+.metrics-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.metric-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.metric-item i {
+    color: var(--accent-color);
+    font-size: 1.3rem;
+}
+
+.keywords-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.keyword-tag {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    animation: fadeInUp 0.5s ease-out;
+}
+.sentiment-distribution {
+    margin-top: 15px;
+}
+.counter-animation {
+    animation: countUp 2s ease-out;
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}.insights-card {
+    transition: all var(--transition-speed) ease;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    background-color: white;
+}
+
+.insights-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+.progress {
+    height: 25px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    background-color: rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: width 1s ease-in-out;
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 40px 40px;
+    animation: progress-bar-stripes 2s linear infinite;
+}
+
+.list-group-item {
+    border-color: rgba(0, 0, 0, 0.05);
+    padding: 15px 20px;
+    transition: all var(--transition-speed) ease;
+}
+
+.list-group-item:hover {
+    background-color: rgba(0, 0, 0, 0.01);
+    transform: translateX(5px);
+}
+
+/* Dark mode additions */
+.dark-mode .insights-card {
+    background-color: var(--card-background);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .progress {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .list-group-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+}
+
+.dark-mode .list-group-item:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+@keyframes progress-bar-stripes {
+    from { background-position: 40px 0; }
+    to { background-position: 0 0; }
+}/* Comment section animations */
+.comment-card {
+    animation: slideIn 0.5s ease-out;
+    transform-origin: left;
+}
+
+.comment-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+/* Add these styles for the sentiment buttons */
+.tab-buttons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.tab-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    color: #666;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tab-button[data-category="positive"] {
+    border-left: 4px solid #28a745;
+}
+
+.tab-button[data-category="neutral"] {
+    border-left: 4px solid #ffc107;
+}
+
+.tab-button[data-category="negative"] {
+    border-left: 4px solid #dc3545;
+}
+
+.tab-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tab-button.active[data-category="positive"] {
+    background: linear-gradient(45deg, #28a745, #34ce57);
+    color: white;
+}
+
+.tab-button.active[data-category="neutral"] {
+    background: linear-gradient(45deg, #ffc107, #ffdb4a);
+    color: white;
+}
+
+.tab-button.active[data-category="negative"] {
+    background: linear-gradient(45deg, #dc3545, #ff4d5b);
+    color: white;
+}
+
+.tab-button i {
+    margin-right: 8px;
+}
+
+.tab-button:not(.active):hover[data-category="positive"] {
+    background: rgba(40, 167, 69, 0.1);
+}
+
+.tab-button:not(.active):hover[data-category="neutral"] {
+    background: rgba(255, 193, 7, 0.1);
+}
+
+.tab-button:not(.active):hover[data-category="negative"] {
+    background: rgba(220, 53, 69, 0.1);
+}
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}.insights-card {
+    transition: all var(--transition-speed) ease;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    height: 100%;
+    background-color: white;
+}
+
+.insights-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+.progress {
+    height: 25px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    background-color: rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    transition: width 1s ease-in-out;
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-size: 40px 40px;
+    animation: progress-bar-stripes 2s linear infinite;
+}
+
+.list-group-item {
+    border-color: rgba(0, 0, 0, 0.05);
+    padding: 15px 20px;
+    transition: all var(--transition-speed) ease;
+}
+
+.list-group-item:hover {
+    background-color: rgba(0, 0, 0, 0.01);
+    transform: translateX(5px);
+}
+
+/* Dark mode additions */
+.dark-mode .insights-card {
+    background-color: var(--card-background);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .progress {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .list-group-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-color);
+}
+
+.dark-mode .list-group-item:hover {
+    background-color: rgba(255, 255, 255, 0.07);
+}
+
+@keyframes progress-bar-stripes {
+    from { background-position: 40px 0; }
+    to { background-position: 0 0; }
+}/* Comment section animations */
+.comment-card {
+    animation: slideIn 0.5s ease-out;
+    transform-origin: left;
+}
+
+.comment-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.tab-button {
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+.tab-button:hover {
+    transform: scale(1.05);
+}
+.tab-button.active {
+    animation: pulse 2s infinite;
+}
+
+/* New animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(114, 9, 183, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(114, 9, 183, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(114, 9, 183, 0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Dark mode enhancements */
+.dark-mode .results-container {
+    background-color: var(--card-background);
+    color: var(--text-color);
+}
+
+.dark-mode .chart-container {
+    background-color: var(--card-background);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
